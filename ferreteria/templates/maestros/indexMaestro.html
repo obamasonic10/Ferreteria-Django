@@ -1,0 +1,66 @@
+{% extends "base2.html" %}
+
+{% block titulo %} Solicitudes {% endblock %}
+
+{% block contenido %} 
+
+<div class="p-5 bg-light">
+    <div class="container">
+        <center><h1 class="display-3">Bienvenido Maestro</h1></center>
+        <center><p class="lead">Gestiona tus solicitudes</p></center>
+        <hr class="my-2">
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Listar Solicitudes
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Solicitudes</h4>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título del trabajo</th>
+                    <th>Tipo de trabajo</th>
+                    <th>Descripción del trabajo</th>
+                    <th>Imagen</th>
+                    <th>Nombre del solicitante</th>
+                    <th>Celular</th>
+                    <th>Correo</th>
+                    <th>ACCIÓN</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for solicitud in solicitudes %}
+                <tr>
+                    <td>{{ solicitud.id }}</td>
+                    <td>{{ solicitud.titulo }}</td>
+                    <td>{{ solicitud.tipotrabajo }}</td>
+                    <td>{{ solicitud.descripcion }}</td>
+                    <td>
+                        <img src="{{ solicitud.imagensol.url }}" height="150" />                  
+                    </td>
+                    <td>{{ solicitud.nombre }}</td>
+                    <td>{{ solicitud.celular }}</td>
+                    <td>{{ solicitud.correo }}</td>
+                    <th>
+                        <a name="" id="" class="btn btn-info" href="#" role="button">Aceptar</a> 
+                        | 
+                        <a name="" id="" class="btn btn-danger" href="{% url 'rechazar' solicitud.id %}" role="button">Rechazar</a> 
+                    </th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    <div class="card-footer text-muted">
+        
+    </div>
+</div>
+
+{% endblock %} 

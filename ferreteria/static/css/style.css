@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@100;300;500&family=Work+Sans:wght@100;200;300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background:rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* navbar*/
+.botones{
+    align-items: center;
+    text-align: center;
+}
+
+.botonesperfil{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.userlogo {
+    align-items: center;
+    text-align: center;
+}
+
+.userlogo ion-icon{
+    height: 40px;
+    width: 40px;
+}
+
+.dropdown{
+    display: inline-block;}
+
+.btn-login{
+    background-color: #0744ad;
+    color: white;
+}
+
+.btn-register{
+    background-color: #0744ad;
+    color: white;
+}
+
+.btn:hover{
+    background: #3c6fc6;
+    color: white;
+}
+
+.navbar-nav{
+    align-items: center;
+    font-size: 30px;
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
+}
+
+
+
+
+/* navbar*/
+
+
+
+
+/*imagenabout*/
+.imagenabout img{
+    text-align: center;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+}
+/*imagenabout*/
+
+
+
+.texto{
+    text-align: center;
+    font-weight: bold;
+}
+
+.borde{
+    margin: 40px;
+}
+
+h1, h3{
+    color:rgb(99, 99, 99);
+}
+
+
+
+/* titulo/ filtros*/
+.title{
+    text-align: center;
+}
+
+.busqueda{
+    display: flex;
+    justify-content: center;
+}
+
+.input-group{
+    width: 500px;
+    height: 30px;
+}
+/* titulo/ filtros*/
+
+
+/* cuerpo card*/
+.card{
+    margin: 10px;
+    width: auto;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.btn-card{
+    background: #0744ad;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.btn-card:hover{
+    background: #3c6fc6;
+    color: white;
+}
+
+.card-img-top{
+    margin: 10px;
+    padding:10px;
+    border-radius: 15px;
+}
+/* cuerpo card*/
+
+
+/* banner solicitud*/
+.soliletra{
+    text-decoration: none;
+    color:rgb(255, 255, 255) ;
+}
+
+.soliletra:hover{
+    color: rgb(0, 0, 0);
+}
+
+ .soli{
+    position:fixed;
+    top: 200px;
+    right: 0;
+    margin: 3em;
+    background-color: #0744ad;
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    z-index:3;
+    border-radius: 10px;
+ }
+
+ .soli  p {
+    position: relative;
+    top: 10px;
+    justify-content: center;
+}
+
+.soli  p ion-icon{
+    height: 40px;
+    width: 40px;
+}
+/* banner solicitud*/
+
+
+/* footer */
+footer{
+    justify-content: flex-end;
+    position:relative;
+    width: 100%;
+    background: #4685f9;
+    min-height: 100px;
+    padding: 20px 50px;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social_icon, footer .menu{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer .social_icon li, footer .menu li{
+    list-style: none;
+}
+
+footer .social_icon li a{
+    font-size: 1.5em;
+    color: white;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+footer .social_icon li a:hover{
+    transform: translateY(-10px);
+}
+
+footer .menu li a{
+    font-size: 1em;
+    color: white;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+footer .menu li a:hover{
+    opacity: 1;
+}
+
+footer p{
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+}
+
+footer .wave{
+    position: absolute;
+    top: -100px;
+    left: 0;    
+    width: 100%;
+    height: 100px;
+    background-image: url(/imagenes/wave1.png);
+    background-size: 1000px 100px;
+} 
+
+footer .wave#wave1{
+    z-index: 2;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 4s linear infinite;
+}
+
+footer .wave#wave2{
+    z-index: 1;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave2 4s linear infinite;
+}
+
+footer .wave#wave3{
+    z-index: 2;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWave 3s linear infinite;
+}
+
+footer .wave#wave4{
+    z-index: 1;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animateWave2 3s linear infinite;
+}
+
+@keyframes animateWave {
+    0%
+    {
+        background-position-x: 1000px;
+    }
+
+    100%
+    {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave2 {
+    0%
+    {
+        background-position-x: 0px;
+    }
+
+    100%
+    {
+        background-position-x: 1000px;
+    }
+}
+
+/* footer */
+
+
+
+
