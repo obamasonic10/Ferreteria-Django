@@ -1,16 +1,56 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from .models import Producto
-from .models import Solicitud
+from .models import *
+from .forms import *
 
-from .forms import ProductoForm
-from .forms import SolicitudForm
+import mysql.connector as sql
+
+rut=''
+nombre=''
+apellidoP=''
+apellidoM=''
+email=''
+celular=''
+password=''
+comuna=''
 
 # Create your views here.
+#LOGIN
+def login(request):
+    return render(request, 'paginas/login.html')
+
 
 def nosotros(request):
     return render(request, 'paginas/nosotros.html')
+
+#REGISTRO EMPRESAS
+#QUERY para registrar
+def registroEmpresas(request):
+    global fn,ln,s,em,pwd
+    if request.method=="POST":
+        m=sql.connect(host="localhost",user="root",passwd="",database='ferretec')
+        cursor=m.cursor()
+        d=request.POST
+        for key,value in d.items():
+            if key=="rutAdmin":
+                rut=value
+            if key=="nombreAdmin":
+                nombre=value
+            if key=="apellidopAdmin":
+                apellidoP=value
+            if key=="apellidomAdmin":
+                apellidoM=value
+            if key=="password":
+                password=value
+
+
+        c="INSERT INTO `ferreteria_cliente` Values('{}','{}','{}','{}',MD5('{}'))".format(rut,nombre,apellidoP,apellidoM,email,celular,password,comuna)
+        cursor.execute(c)
+        m.commit()
+
+    return render(request,'paginas/registroEmpresas.html')
+
 
 #PRODUCTOS
 #@login_required
@@ -39,10 +79,6 @@ def eliminar(request, id):
     return redirect('productos')
 
 
-#LOGIN
-def login(request):
-    return render(request, 'paginas/login.html')
-
 
 #MAESTROS
 def solicitudes(request):
@@ -64,3 +100,5 @@ def crearSolicitud(request):
         form.save()
         return redirect('crearSolicitud')
     return render(request, 'cliente/crearSolicitud.html', {'form': form})
+
+

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "plantillaBasenav.html" %}
 
 {% block titulo %} Listado de Productos {% endblock %}
 
@@ -25,9 +25,10 @@
                     <th>Imagen</th>
                     <th>Nombre</th>
                     <th>Marca</th>
+                    <th>Categoria</th>
                     <th>Descripción</th>
                     <th>Stock</th>
-                    <th>Precio Compra</th>
+                    <th>Fecha Vencimiento</th>
                     <th>Precio Venta</th>
                     <th>ACCIONES</th>
                 </tr>
@@ -42,9 +43,10 @@
                     </td>
                     <td>{{ producto.nombre }}</td>
                     <td>{{ producto.marca }}</td>
+                    <td>{{ producto.categoria }}</td>
                     <td>{{ producto.descripcion }}</td>
                     <td>{{ producto.stock }}</td>
-                    <td>{{ producto.preciocompra }}</td>
+                    <td>{{ producto.fechavenc }}</td>
                     <td>{{ producto.precioventa }}</td>
                     <th> 
                         <a name="" id="" class="btn btn-info" href="{% url 'editar' producto.id %}" role="button">Editar</a> 
@@ -64,7 +66,5 @@
     </div>
 </div>
 
-<br>
-<footer>Copyright</footer>
 
 {% endblock %}    
